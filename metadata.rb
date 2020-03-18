@@ -1,8 +1,8 @@
-name 'Ritsema-Banck'
+name 'ritsema-banck'
 maintainer 'Edgar'
 maintainer_email 'Edgar@AnotherFoxGuy.com'
 license 'All Rights Reserved'
-description 'Installs/Configures Ritsema-Banck'
+description 'Installs/Configures ritsema-banck'
 version '2020.3.0'
 chef_version '>= 14.0'
 

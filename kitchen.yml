@@ -34,7 +34,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[Ritsema-Banck]
+      - recipe[ritsema-banck]
     verifier:
       inspec_tests:
         - test/integration/default

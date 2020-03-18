@@ -1,5 +1,5 @@
 #
-# Cookbook:: Ritsema-Banck
+# Cookbook:: ritsema-banck
 # Recipe:: default
 #
 # Copyright:: 2020, The Authors, All Rights Reserved.
@@ -9,5 +9,5 @@ apt_update 'Update the apt cache daily' do
   action :periodic
 end
 
-include_recipe 'Ritsema-Banck::webserver'
-#include_recipe 'Ritsema-Banck::website'
+include_recipe 'ritsema-banck::webserver'
+#include_recipe 'ritsema-banck::website'

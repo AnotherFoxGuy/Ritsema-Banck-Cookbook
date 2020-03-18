@@ -1,6 +1,6 @@
-# Ritsema-Banck CHANGELOG
+# ritsema-banck CHANGELOG
 
-This file is used to list changes made in each version of the Ritsema-Banck cookbook.
+This file is used to list changes made in each version of the ritsema-banck cookbook.
 
 # 0.1.0
 

@@ -1,5 +1,5 @@
 #
-# Cookbook:: Ritsema-Banck
+# Cookbook:: ritsema-banck
 # Recipe:: webserver
 #
 
