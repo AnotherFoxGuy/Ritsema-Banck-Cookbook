@@ -1,6 +1,10 @@
 ---
 driver:
-  name: vagrant
+  name: dokken
+  chef_version: latest # or 15 or 15.0 or 15.0.300 or curent
+
+transport:
+  name: dokken
 
 ## The forwarded_port port feature lets you connect to ports on the VM guest via
 ## localhost on the host.
@@ -10,7 +14,7 @@ driver:
 #    - ["forwarded_port", {guest: 80, host: 8080}]
 
 provisioner:
-  name: chef_zero
+  name: dokken
   # You may wish to disable always updating cookbooks in CI or other testing environments.
   # For example:
   #   always_update_cookbooks: <%= !ENV['CI'] %>
@@ -26,12 +30,11 @@ verifier:
 
 platforms:
   - name: ubuntu-18.04
-  - name: centos-7
 
 suites:
   - name: default
     run_list:
-      - recipe[Ritsema-Banck-Cookbookchef::default]
+      - recipe[Ritsema-Banck]
     verifier:
       inspec_tests:
         - test/integration/default
