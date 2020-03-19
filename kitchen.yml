@@ -1,7 +1,8 @@
 ---
 driver:
   name: dokken
-  chef_version: latest # or 15 or 15.0 or 15.0.300 or curent
+  privileged: true  # because Docker and SystemD/Upstart
+  env: [CHEF_LICENSE=accept]
   volumes:
     # saves the apt archieves outside of the container
     - /tmp/apt-archives/:/var/cache/apt/archives/
@@ -31,15 +32,30 @@ platforms:
   - name: ubuntu-19.10
     driver:
       image: dokken/ubuntu-19.10
-      pid_one_command: /bin/service
+      pid_one_command: /bin/systemd
       intermediate_instructions:
         # prevent APT from deleting the APT folder
         - RUN rm /etc/apt/apt.conf.d/docker-clean
+
 
 suites:
   - name: default
     run_list:
       - recipe[ritsema-banck]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
+  - name: webserver
+    run_list:
+      - recipe[ritsema-banck::webserver]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
+  - name: database
+    run_list:
+      - recipe[ritsema-banck::database]
     verifier:
       inspec_tests:
         - test/integration/default

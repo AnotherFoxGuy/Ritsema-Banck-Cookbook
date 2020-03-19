@@ -10,4 +10,5 @@ apt_update 'Update the apt cache daily' do
 end
 
 include_recipe 'ritsema-banck::webserver'
+include_recipe 'ritsema-banck::database'
 #include_recipe 'ritsema-banck::website'
