@@ -45,18 +45,21 @@ suites:
     verifier:
       inspec_tests:
         - test/integration/default
-    attributes:
   - name: webserver
     run_list:
       - recipe[ritsema-banck::webserver]
     verifier:
       inspec_tests:
         - test/integration/default
-    attributes:
   - name: database
     run_list:
       - recipe[ritsema-banck::database]
     verifier:
       inspec_tests:
         - test/integration/default
-    attributes:
+  - name: ldap
+    run_list:
+      - recipe[ritsema-banck::ldap]
+    verifier:
+      inspec_tests:
+        - test/integration/default
