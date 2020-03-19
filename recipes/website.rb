@@ -3,6 +3,7 @@
 # Recipe:: website
 #
 
+app_dir = '/var/www/'
 
 directory app_dir do
   recursive true
@@ -10,14 +11,7 @@ directory app_dir do
   group   lazy { default_apache_group }
 end
 
-archive_file 'Precompiled.zip' do
-  path '/tmp/Precompiled.zip'
-  destination '/var/www/'
-end
-
-
 composer_project "/var/www/" do
   dev false
-  prefer_dist false
   action :install
 end

@@ -3,8 +3,7 @@ source 'https://supermarket.chef.io'
 metadata
 
 cookbook 'apache2'
-#cookbook 'openldap'
-#cookbook 'mariadb'
-cookbook 'php'
-#cookbook 'firewall'
+cookbook 'openldap'
+cookbook 'mariadb'
+cookbook 'firewall'
 cookbook 'composer'

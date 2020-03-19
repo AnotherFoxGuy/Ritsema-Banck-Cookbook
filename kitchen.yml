@@ -2,13 +2,12 @@
 driver:
   name: dokken
   chef_version: latest # or 15 or 15.0 or 15.0.300 or curent
+  volumes:
+    # saves the apt archieves outside of the container
+    - /tmp/apt-archives/:/var/cache/apt/archives/
 
 transport:
   name: dokken
-
-## The forwarded_port port feature lets you connect to ports on the VM guest via
-## localhost on the host.
-## see also: https://www.vagrantup.com/docs/networking/forwarded_ports.html
 
 #  network:
 #    - ["forwarded_port", {guest: 80, host: 8080}]
@@ -29,7 +28,13 @@ verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-18.04
+  - name: ubuntu-19.10
+    driver:
+      image: dokken/ubuntu-19.10
+      pid_one_command: /bin/service
+      intermediate_instructions:
+        # prevent APT from deleting the APT folder
+        - RUN rm /etc/apt/apt.conf.d/docker-clean
 
 suites:
   - name: default

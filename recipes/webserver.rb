@@ -37,28 +37,9 @@ apache2_site '000-default' do
   action :disable
 end
 
-build_essential 'install build tools'
+apt_package %w(php libapache2-mod-php)
+apt_package %w(php-bz2 php-ldap php-mysql php-zip)
 
-apt_package %w(unzip libldap2-dev libbz2-dev libzip-dev)
-
-include_recipe 'php'
-
-php_pear 'bz2' do
-  action :install
-end
-
-php_pear 'ldap' do
-  action :install
-end
-
-php_pear 'bz2' do
-  action :install
-end
-
-php_pear 'mysqli' do
-  action :install
-end
-
-php_pear 'zip' do
-  action :install
-end
+# php_pear %w(bz2 ldap bz2 mysqli zip) do
+#   action :install
+# end
