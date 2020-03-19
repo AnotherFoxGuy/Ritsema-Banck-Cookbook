@@ -7,13 +7,14 @@ file '/etc/default/locale' do
   content 'LANG=en_GB.UTF-8'
 end
 
-apache2_install 'default'
+#apache2_install 'default'
+package 'apache2'
 
 service 'apache2' do
   extend Apache2::Cookbook::Helpers
   service_name lazy { apache_platform_service_name }
   supports restart: true, status: true, reload: true
-  action :nothing
+  action [:enable, :start]
 end
 
 apache2_module 'ldap'
@@ -37,8 +38,9 @@ apache2_site '000-default' do
   action :disable
 end
 
-apt_package %w(php libapache2-mod-php)
-apt_package %w(php-bz2 php-ldap php-mysql php-zip)
+package %w(php libapache2-mod-php)
+package %w(php-bz2 php-ldap php-mysql php-zip)
+package 'composer'
 
 # php_pear %w(bz2 ldap bz2 mysqli zip) do
 #   action :install
