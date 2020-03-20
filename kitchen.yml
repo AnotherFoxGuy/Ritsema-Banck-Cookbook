@@ -41,25 +41,25 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[ritsema-banck]
+      - recipe[ritsema-banck::test_data]
+      - recipe[ritsema-banck::default]
     verifier:
       inspec_tests:
-        - test/integration/default
+        - test/webserver
+        - test/database
+        - test/website
   - name: webserver
     run_list:
       - recipe[ritsema-banck::webserver]
     verifier:
       inspec_tests:
-        - test/integration/default
+        - test/webserver
   - name: database
     run_list:
       - recipe[ritsema-banck::database]
     verifier:
       inspec_tests:
-        - test/integration/default
+        - test/database
   - name: ldap
     run_list:
       - recipe[ritsema-banck::ldap]
-    verifier:
-      inspec_tests:
-        - test/integration/default

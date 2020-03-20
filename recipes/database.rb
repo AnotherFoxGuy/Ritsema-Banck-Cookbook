@@ -31,4 +31,14 @@ end
 #   action :query
 # end
 
+execute 'mysqlinport' do
+  command "mysql -u\"root\" -p\"#{mariadb_pwsd}\" < /tmp/dump.sql"
+  creates '/var/lib/mysql/ritsema_banck/hypotheeken.ibd'
+  action :nothing
+end
+
+cookbook_file '/tmp/dump.sql' do
+  source 'dump.sql'
+  notifies :run, 'execute[mysqlinport]', :immediately
+end
 

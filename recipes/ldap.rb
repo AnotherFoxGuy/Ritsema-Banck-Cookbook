@@ -23,7 +23,7 @@ execute 'slapadd' do
   action :nothing
 end
 
-template '/tmp/dump.ldif' do
+cookbook_file '/tmp/dump.ldif' do
   source 'dump.ldif'
   notifies :run, 'execute[slapadd]', :immediately
 end
