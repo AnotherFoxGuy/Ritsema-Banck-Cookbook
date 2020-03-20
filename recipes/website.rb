@@ -3,17 +3,16 @@
 # Recipe:: website
 #
 
-app_dir = '/var/www/'
+execute "Install composer deps" do
+  cwd "/var/www/"
+  creates "/var/www/vendor/autoload.php"
+  command "/usr/bin/composer install --no-dev --no-interaction --no-ansi --optimize-autoloader"
+end
 
-directory app_dir do
+directory '/var/www/' do
   extend Apache2::Cookbook::Helpers
   recursive true
   mode '0755'
   owner   lazy { default_apache_user }
   group   lazy { default_apache_group }
-end
-
-composer_project "/var/www/" do
-  dev false
-  action :install
 end
