@@ -50,6 +50,7 @@ suites:
         - test/website
   - name: webserver
     run_list:
+      - recipe[ritsema-banck::selfsignedcert]
       - recipe[ritsema-banck::webserver]
     verifier:
       inspec_tests:
@@ -62,4 +63,5 @@ suites:
         - test/database
   - name: ldap
     run_list:
+      - recipe[ritsema-banck::selfsignedcert]
       - recipe[ritsema-banck::ldap]
