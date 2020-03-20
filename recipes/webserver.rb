@@ -23,7 +23,7 @@ apache2_module 'authnz_ldap'
 template 'ritsema-banck' do
   extend  Apache2::Cookbook::Helpers
   source 'ritsema-banck.conf'
-  path   "#{apache_dir}/sites-available/ritsema-banck.conf"
+  path   "#{apache_dir}/sites-available/001-ritsema-banck.conf"
 end
 template 'intranet.ritsema-banck' do
   extend  Apache2::Cookbook::Helpers
@@ -31,7 +31,7 @@ template 'intranet.ritsema-banck' do
   path   "#{apache_dir}/sites-available/intranet.ritsema-banck.conf"
 end
 
-apache2_site 'ritsema-banck'
+apache2_site '001-ritsema-banck'
 apache2_site 'intranet.ritsema-banck'
 
 apache2_site '000-default' do
