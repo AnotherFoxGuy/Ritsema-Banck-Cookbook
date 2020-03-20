@@ -28,3 +28,6 @@ cookbook_file '/tmp/dump.ldif' do
   notifies :run, 'execute[slapadd]', :immediately
 end
 
+file '/etc/ldap/ldap.conf' do
+  mode '0755'
+end

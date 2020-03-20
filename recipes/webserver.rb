@@ -10,15 +10,9 @@ end
 #apache2_install 'default'
 package 'apache2'
 
-service 'apache2' do
-  extend Apache2::Cookbook::Helpers
-  service_name lazy { apache_platform_service_name }
-  supports restart: true, status: true, reload: true
-  action [:enable, :start]
-end
-
 apache2_module 'ldap'
 apache2_module 'authnz_ldap'
+apache2_module 'ssl'
 
 template 'ritsema-banck' do
   extend  Apache2::Cookbook::Helpers
@@ -45,3 +39,10 @@ package 'composer'
 # php_pear %w(bz2 ldap bz2 mysqli zip) do
 #   action :install
 # end
+
+service 'apache2' do
+  extend Apache2::Cookbook::Helpers
+  service_name lazy { apache_platform_service_name }
+  supports restart: true, status: true, reload: true
+  action [:enable, :start]
+end

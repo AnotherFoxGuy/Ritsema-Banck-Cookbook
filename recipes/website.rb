@@ -3,6 +3,11 @@
 # Recipe:: website
 #
 
+directory '/var/www/html/' do
+  recursive true
+  action :delete
+end
+
 execute "Install composer deps" do
   cwd "/var/www/"
   creates "/var/www/vendor/autoload.php"

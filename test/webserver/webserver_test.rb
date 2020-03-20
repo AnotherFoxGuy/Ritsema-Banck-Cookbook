@@ -14,3 +14,8 @@ end
 describe http('http://localhost/../lib/hacked.txt') do
   its('status') { should cmp 404 }
 end
+
+describe http('http://localhost/test.php') do
+  its('status') { should cmp 200 }
+  its('body') { should cmp 'success' }
+end
