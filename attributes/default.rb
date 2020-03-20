@@ -8,7 +8,6 @@ normal['openldap']['tls_cafile'] = '/usr/var/ssl/certs/server.key.org'
 
 normal['openldap']['rootpw'] = '{SSHA}6BjlvtSbVCL88li8IorkqMSofkLio58/'
 normal['openldap']['rootpwplain'] = 'secretsauce' # required for the shitty ldapadd tool
-normal['composer']['bin'] = "/usr/bin/composer"
 
 
 default['selfsigned_certificate']['destination'] = "/usr/var/ssl/certs/"
