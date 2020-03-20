@@ -6,12 +6,12 @@ driver:
   volumes:
     # saves the apt archieves outside of the container
     - /tmp/apt-archives/:/var/cache/apt/archives/
+  ports:
+    - "80:80"
+    - "443:443"
 
 transport:
   name: dokken
-
-#  network:
-#    - ["forwarded_port", {guest: 80, host: 8080}]
 
 provisioner:
   name: dokken

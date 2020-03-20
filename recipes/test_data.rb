@@ -3,10 +3,8 @@
 # Recipe:: test_data
 #
 
-directory '/var/www/html/' do
-  recursive true
-  action :delete
-end
+package 'nano'
+
 
 directory '/var/www/src/' do
   recursive true
@@ -30,9 +28,13 @@ file '/var/www/intranet/index.php' do
 end
 
 file '/var/www/lib/hacked.txt' do
-  content 'Hacked!!!!'
+  content "Hacked!!!! #{node['hostname']}"
 end
 
 file '/var/www/composer.json' do
   content '{ "require": { "directorytree/ldaprecord": "^1.2" }}'
+end
+
+cookbook_file '/var/www/src/test.php' do
+  source 'test.php'
 end
