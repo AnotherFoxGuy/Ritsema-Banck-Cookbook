@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 name 'ritsema-banck'
 maintainer 'Edgar'
 maintainer_email 'Edgar@AnotherFoxGuy.com'
