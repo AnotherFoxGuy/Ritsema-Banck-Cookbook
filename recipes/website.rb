@@ -12,6 +12,7 @@ execute "Install composer deps" do
   cwd "/var/www/"
   creates "/var/www/vendor/autoload.php"
   command "/usr/bin/composer install --no-dev --no-interaction --no-ansi --optimize-autoloader"
+  live_stream true
 end
 
 directory '/var/www/' do

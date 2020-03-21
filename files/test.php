@@ -10,8 +10,6 @@ ldap_set_option(NULL, LDAP_OPT_DEBUG_LEVEL, 7);
 $connection = new Connection([
     'hosts'    => ['localhost'],
     'port'     => 389,
-    'use_ssl'  => true,
-//    'use_tls'  => true,
     'username' => 'cn=admin, dc=ritsema-banck, dc=frl',
     'password' => 'admin',
 ]);
