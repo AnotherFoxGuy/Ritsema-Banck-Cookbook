@@ -63,5 +63,4 @@ suites:
         - test/database
   - name: ldap
     run_list:
-      - recipe[ritsema-banck::selfsignedcert]
       - recipe[ritsema-banck::ldap]

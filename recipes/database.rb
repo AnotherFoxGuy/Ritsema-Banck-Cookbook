@@ -34,6 +34,7 @@ end
 execute 'mysqlinport' do
   command "mysql -u\"root\" -p\"#{mariadb_pwsd}\" < /tmp/dump.sql"
   creates '/var/lib/mysql/ritsema_banck/hypotheeken.ibd'
+  sensitive true
   action :nothing
 end
 
