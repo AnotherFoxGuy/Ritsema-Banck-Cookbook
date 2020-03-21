@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Cookbook:: ritsema-banck
 # Recipe:: ldap
@@ -17,7 +19,7 @@ service 'slapd' do
 end
 
 execute 'slapadd' do
-  #command 'slapadd -l /tmp/dump.ldif'
+  # command 'slapadd -l /tmp/dump.ldif'
   command "ldapadd -D \"cn=admin,dc=ritsema-banck, dc=frl\" -w \"#{node['openldap']['rootpwplain']}\" -f /tmp/dump.ldif"
   creates '/var/lib/slapd/uid.bdb'
   sensitive true

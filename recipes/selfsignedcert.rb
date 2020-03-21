@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Recipe:: selfsignedcert
 #
@@ -8,23 +10,22 @@
 #
 
 # install openssl if not present
-package "openssl" do
+package 'openssl' do
   action :install
 end
 
 # create output dir
 directory node['selfsigned_certificate']['destination'] do
-  owner "root"
-  group "root"
-  mode 0755
+  owner 'root'
+  group 'root'
+  mode 0o755
   action :create
   recursive true
 end
 
-
 # create the certificate: make a request for signature for a certiciate, and have your own CA sign it.
-bash "generate certificate" do
-  user "root"
+bash 'generate certificate' do
+  user 'root'
   cwd node['selfsigned_certificate']['destination']
   creates "#{node['selfsigned_certificate']['destination']}/server.key"
   code <<-EOH
@@ -32,8 +33,8 @@ bash "generate certificate" do
   EOH
 end
 
-bash "generate signature request" do
-  user "root"
+bash 'generate signature request' do
+  user 'root'
   cwd node['selfsigned_certificate']['destination']
   creates "#{node['selfsigned_certificate']['destination']}/server.csr"
   code <<-EOH
@@ -41,8 +42,8 @@ bash "generate signature request" do
   EOH
 end
 
-bash "sign key" do
-  user "root"
+bash 'sign key' do
+  user 'root'
   cwd node['selfsigned_certificate']['destination']
   creates "#{node['selfsigned_certificate']['destination']}/server.key.org"
   code <<-EOH
@@ -51,8 +52,8 @@ bash "sign key" do
   EOH
 end
 
-bash "signing the certificate" do
-  user "root"
+bash 'signing the certificate' do
+  user 'root'
   cwd node['selfsigned_certificate']['destination']
   creates "#{node['selfsigned_certificate']['destination']}/server.crt"
   code <<-EOH
@@ -61,7 +62,7 @@ bash "signing the certificate" do
 end
 
 # Fix perms
-%w(server.crt  server.csr  server.key  server.key.org).each do |f|
+%w[server.crt server.csr server.key server.key.org].each do |f|
   file "#{node['selfsigned_certificate']['destination']}/#{f}" do
     mode '0755'
   end

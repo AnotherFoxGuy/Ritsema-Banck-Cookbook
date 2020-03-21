@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Cookbook:: ritsema-banck
 # Recipe:: website
@@ -8,10 +10,10 @@ directory '/var/www/html/' do
   action :delete
 end
 
-execute "Install composer deps" do
-  cwd "/var/www/"
-  creates "/var/www/vendor/autoload.php"
-  command "/usr/bin/composer install --no-dev --no-interaction --no-ansi --optimize-autoloader"
+execute 'Install composer deps' do
+  cwd '/var/www/'
+  creates '/var/www/vendor/autoload.php'
+  command '/usr/bin/composer install --no-dev --no-interaction --no-ansi --optimize-autoloader'
   live_stream true
 end
 
