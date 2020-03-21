@@ -1,7 +1,7 @@
 ---
 driver:
   name: dokken
-  privileged: true  # because Docker and SystemD/Upstart
+  privileged: true # because Docker and SystemD/Upstart
   env: [CHEF_LICENSE=accept]
   volumes:
     # saves the apt archieves outside of the container
@@ -36,7 +36,6 @@ platforms:
       intermediate_instructions:
         # prevent APT from deleting the APT folder
         - RUN rm /etc/apt/apt.conf.d/docker-clean
-
 
 suites:
   - name: default
