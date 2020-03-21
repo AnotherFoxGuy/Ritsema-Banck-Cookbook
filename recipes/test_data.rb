@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 #
 # Cookbook:: ritsema-banck
 # Recipe:: test_data
 #
 
 package 'nano'
-
 
 directory '/var/www/src/' do
   recursive true

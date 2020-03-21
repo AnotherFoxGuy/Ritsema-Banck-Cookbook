@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # InSpec test for recipe ritsema-banck::database
 
 # The InSpec reference, with examples and extensive documentation, can be
