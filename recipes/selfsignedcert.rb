@@ -18,7 +18,7 @@ end
 directory node['selfsigned_certificate']['destination'] do
   owner 'root'
   group 'root'
-  mode 0755
+  mode 0o755
   action :create
   recursive true
 end
