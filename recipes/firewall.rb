@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Cookbook:: ritsema-banck
 # Recipe:: firewall
@@ -10,5 +12,5 @@ firewall 'default'
 firewall_rule 'http/https' do
   protocol :tcp
   port     [80, 443]
-  command   :allow
+  command :allow
 end
