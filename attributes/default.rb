@@ -15,3 +15,5 @@ default['selfsigned_certificate']['organisation'] = 'Ritsema Banck'
 default['selfsigned_certificate']['depart'] = 'Security'
 default['selfsigned_certificate']['cn'] = 'localhost'
 default['selfsigned_certificate']['email'] = 'Edgar@AnotherFoxGuy.com'
+
+default['firewall']['allow_ssh'] = true
