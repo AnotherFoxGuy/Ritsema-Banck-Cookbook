@@ -17,3 +17,4 @@ default['selfsigned_certificate']['cn'] = 'localhost'
 default['selfsigned_certificate']['email'] = 'Edgar@AnotherFoxGuy.com'
 
 default['firewall']['allow_ssh'] = true
+default['fail2ban']['email'] = 'security@ritsema-banck.frl'

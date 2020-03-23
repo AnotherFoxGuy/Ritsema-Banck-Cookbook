@@ -2,7 +2,7 @@
 
 #
 # Cookbook:: ritsema-banck
-# Recipe:: firewall
+# Recipe:: security
 #
 
 firewall 'default'
@@ -14,3 +14,6 @@ firewall_rule 'http/https' do
   port     [80, 443]
   command :allow
 end
+
+
+include_recipe 'fail2ban::default'
