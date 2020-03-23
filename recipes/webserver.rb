@@ -42,6 +42,10 @@ package 'composer'
 #   action :install
 # end
 
+package %w[libapache2-mod-security2 modsecurity-crs]
+
+apache2_module 'security2'
+
 service 'apache2' do
   extend Apache2::Cookbook::Helpers
   service_name lazy { apache_platform_service_name }
