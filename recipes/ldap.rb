@@ -22,11 +22,11 @@ execute 'slapadd' do
   # command 'slapadd -l /tmp/dump.ldif'
   command "ldapadd -D \"cn=admin,dc=ritsema-banck, dc=frl\" -w \"#{node['openldap']['rootpwplain']}\" -f /tmp/dump.ldif"
   sensitive true
+  creates '/var/lib/slapd/uid.bdb'
   action :nothing
 end
 
 cookbook_file '/tmp/dump.ldif' do
   source 'dump.ldif'
-  creates '/var/lib/slapd/uid.bdb'
   notifies :run, 'execute[slapadd]', :immediately
 end

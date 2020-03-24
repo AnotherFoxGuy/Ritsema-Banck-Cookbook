@@ -35,7 +35,7 @@ apache2_site '000-default' do
 end
 
 package %w[php libapache2-mod-php]
-package %w[php-bz2 php-ldap php-mysql php-zip]
+package %w[php-curl php-bz2 php-ldap php-mbstring php-mysql php-xml php-zip]
 package 'composer'
 
 # php_pear %w(bz2 ldap bz2 mysqli zip) do
