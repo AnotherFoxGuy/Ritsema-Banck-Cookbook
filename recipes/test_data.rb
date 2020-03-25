@@ -33,9 +33,13 @@ file '/var/www/lib/hacked.txt' do
 end
 
 file '/var/www/composer.json' do
-  content '{ "require": { "directorytree/ldaprecord": "^1.2" }}'
+  content '{ "autoload": { "psr-4": { "RitsemaBanck\\\\": "lib" }}, "require": { "directorytree/ldaprecord": "^1.2" }}'
 end
 
-cookbook_file '/var/www/src/test.php' do
-  source 'test.php'
+cookbook_file '/var/www/src/test-ldap.php' do
+  source 'test-ldap.php'
+end
+
+cookbook_file '/var/www/src/test-mariadb.php' do
+  source 'test-mariadb.php'
 end
