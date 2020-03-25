@@ -17,8 +17,16 @@ dpkg_package 'webmin.deb' do
   action :install
 end
 
+
+include_recipe 'ritsema-banck::security'
+
 # open webmin port
 firewall_rule 'webmin' do
   port 10_000
   command :allow
+end
+
+remote_file '/var/www/src/adminer.php' do
+  source 'https://github.com/vrana/adminer/releases/download/v4.7.6/adminer-4.7.6.php'
+  mode '0755'
 end

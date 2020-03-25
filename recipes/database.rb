@@ -40,3 +40,7 @@ cookbook_file '/tmp/dump.sql' do
   source 'dump.sql'
   notifies :run, 'execute[mysqlinport]', :immediately
 end
+
+execute 'timedatectl fix' do
+  command "timedatectl set-local-rtc 0"
+end
