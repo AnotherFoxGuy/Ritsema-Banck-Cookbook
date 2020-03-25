@@ -23,7 +23,7 @@ end
 
 template 'ConnectDB.php' do
   source 'ConnectDB.php'
-  path   "/var/www/lib/ConnectDB.php"
+  path   '/var/www/lib/ConnectDB.php'
 end
 
 directory '/var/www/' do
