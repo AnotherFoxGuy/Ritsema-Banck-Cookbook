@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
+default['mariadb']['host'] = 'localhost'
+default['mariadb']['database'] = 'ritsema_banck'
+default['mariadb']['user'] = 'ritsema_banck'
+default['mariadb']['password'] = '9nrrqepJmMtb85VyQ7EjBKzq'
+default['mariadb']['rootpassword'] = '5aKWmd5UQDfxbDXmJEmPQueu'
+
 normal['openldap']['basedn'] = 'dc=ritsema-banck, dc=frl'
 normal['openldap']['server'] = 'ritsema-banck.frl'
 
@@ -17,4 +23,4 @@ default['selfsigned_certificate']['cn'] = 'localhost'
 default['selfsigned_certificate']['email'] = 'Edgar@AnotherFoxGuy.com'
 
 default['firewall']['allow_ssh'] = true
-default['fail2ban']['email'] = 'security@ritsema-banck.frl'
+default['fail2ban']['email'] = 'rb-security@AnotherFoxGuy.com'

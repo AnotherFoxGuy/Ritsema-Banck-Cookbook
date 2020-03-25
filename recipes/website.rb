@@ -5,6 +5,10 @@
 # Recipe:: website
 #
 
+file '/var/www/c3.php' do
+  action :touch
+end
+
 directory '/var/www/html/' do
   recursive true
   action :delete
@@ -15,6 +19,11 @@ execute 'Install composer deps' do
   creates '/var/www/vendor/autoload.php'
   command '/usr/bin/composer install --no-dev --no-interaction --no-ansi --optimize-autoloader'
   live_stream true
+end
+
+template 'ConnectDB.php' do
+  source 'ConnectDB.php'
+  path   "/var/www/lib/ConnectDB.php"
 end
 
 directory '/var/www/' do
