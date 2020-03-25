@@ -5,25 +5,21 @@
 # Recipe:: database
 #
 
-mariadb_pwsd = 'root123'
-
 mariadb_server_install 'MariaDB Server install' do
-  password mariadb_pwsd
+  password node['mariadb']['rootpassword']
   action %i[install create]
 end
 
-mariadb_database 'ritsema_banck' do
+mariadb_database node['mariadb']['database'] do
   host '127.0.0.1'
-  password mariadb_pwsd
+  password node['mariadb']['rootpassword']
   action :create
 end
 
-mariadb_user 'ritsema_banck' do
-  ctrl_password mariadb_pwsd
-  password 'kaas'
-  database_name 'ritsema_banck'
+mariadb_user node['mariadb']['user'] do
+  ctrl_password node['mariadb']['rootpassword']
+  password node['mariadb']['password']
   host '%'
-  privileges [:all]
   action :create
 end
 
@@ -34,7 +30,7 @@ end
 # end
 
 execute 'mysqlinport' do
-  command "mysql -u\"root\" -p\"#{mariadb_pwsd}\" < /tmp/dump.sql"
+  command "mysql -u\"root\" -p\"#{node['mariadb']['rootpassword']}\" < /tmp/dump.sql"
   creates '/var/lib/mysql/ritsema_banck/hypotheeken.ibd'
   sensitive true
   action :nothing
