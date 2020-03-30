@@ -45,10 +45,11 @@ package 'composer'
 package %w[libapache2-mod-security2 modsecurity-crs]
 
 apache2_module 'security2'
+apache2_module 'headers'
 
 service 'apache2' do
   extend Apache2::Cookbook::Helpers
   service_name lazy { apache_platform_service_name }
   supports restart: true, status: true, reload: true
-  action %i[enable start]
+  action %i[enable restart]
 end
