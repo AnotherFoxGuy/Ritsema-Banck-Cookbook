@@ -21,5 +21,12 @@ firewall_rule 'http/https' do
   command :allow
 end
 
+cookbook_file '/etc/ssh/sshd_config' do
+  source 'sshd_config'
+end
+
+cookbook_file '/etc/apache2/apache2.conf' do
+  source 'apache2.conf'
+end
 
 include_recipe 'fail2ban::default'
