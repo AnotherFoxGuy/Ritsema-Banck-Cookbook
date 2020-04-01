@@ -44,7 +44,7 @@ apache2_site '000-default' do
 end
 
 package %w[php7.4 libapache2-mod-php7.4]
-package %w[php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring php7.4-opcache php7.4-soap php7.4-zip php7.4-intl]
+package %w[php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring php7.4-ldap php7.4-soap php7.4-zip php7.4-intl]
 package 'composer'
 
 package %w[libapache2-mod-security2 modsecurity-crs]
