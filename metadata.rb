@@ -5,7 +5,7 @@ maintainer 'Edgar'
 maintainer_email 'Edgar@AnotherFoxGuy.com'
 license 'All Rights Reserved'
 description 'Installs/Configures ritsema-banck'
-version '1.0.0'
+version '1.0.1'
 chef_version '>= 14.0'
 
 depends 'apache2'

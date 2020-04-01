@@ -15,6 +15,7 @@ end
 mysql_service 'default' do
   package_name 'mysql-server'
   version '8.0'
+  socket '/var/run/mysqld/mysqld.sock'
   initial_root_password node['mysql']['rootpassword']
   action %i[create start]
 end

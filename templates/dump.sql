@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS ritsema_banck;
 
 
-CREATE USER '<%= node['mysql']['user'] %>'@'<%= node['mysql']['host'] %>' IDENTIFIED BY '<%= node['mysql']['password'] %>';
+CREATE USER '<%= node['mysql']['user'] %>'@'<%= node['mysql']['host'] %>' IDENTIFIED WITH mysql_native_password BY '<%= node['mysql']['password'] %>';
 GRANT ALL PRIVILEGES ON ritsema_banck.* TO '<%= node['mysql']['user'] %>'@'<%= node['mysql']['host'] %>';
 FLUSH PRIVILEGES;
 
