@@ -9,9 +9,18 @@ file '/etc/default/locale' do
   content 'LANG=en_GB.UTF-8'
 end
 
+# https://launchpad.net/~ondrej/+archive/ubuntu/php/
+apt_repository 'ondrej-php' do
+  uri          'ppa:ondrej/php'
+end
+apt_repository 'ondrej-apache2' do
+  uri          'ppa:ondrej/apache2'
+end
+
 # apache2_install 'default'
 package 'apache2'
 
+apache2_module 'headers'
 apache2_module 'ldap'
 apache2_module 'authnz_ldap'
 apache2_module 'ssl'
@@ -34,18 +43,13 @@ apache2_site '000-default' do
   action :disable
 end
 
-package %w[php libapache2-mod-php]
-package %w[php-curl php-bz2 php-ldap php-mbstring php-mysql php-xml php-zip]
+package %w[php7.4 libapache2-mod-php7.4]
+package %w[php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring php7.4-opcache php7.4-soap php7.4-zip php7.4-intl]
 package 'composer'
-
-# php_pear %w(bz2 ldap bz2 mysqli zip) do
-#   action :install
-# end
 
 package %w[libapache2-mod-security2 modsecurity-crs]
 
 apache2_module 'security2'
-apache2_module 'headers'
 
 service 'apache2' do
   extend Apache2::Cookbook::Helpers
