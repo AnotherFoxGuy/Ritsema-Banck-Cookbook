@@ -32,7 +32,8 @@ execute 'mysqlinport' do
   action :nothing
 end
 
-cookbook_file '/tmp/dump.sql' do
+template '/tmp/dump.sql' do
   source 'dump.sql'
   notifies :run, 'execute[mysqlinport]', :immediately
+  sensitive true
 end

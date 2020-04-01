@@ -24,6 +24,7 @@ end
 template 'ConnectDB.php' do
   source 'ConnectDB.php'
   path   '/var/www/lib/ConnectDB.php'
+  sensitive true
 end
 
 directory '/var/www/' do

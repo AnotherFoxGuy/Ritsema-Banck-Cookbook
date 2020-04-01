@@ -1,3 +1,11 @@
+CREATE DATABASE IF NOT EXISTS ritsema_banck;
+
+
+CREATE USER '<%= node['mysql']['user'] %>'@'<%= node['mysql']['host'] %>' IDENTIFIED BY '<%= node['mysql']['password'] %>';
+GRANT ALL PRIVILEGES ON ritsema_banck.* TO '<%= node['mysql']['user'] %>'@'<%= node['mysql']['host'] %>';
+FLUSH PRIVILEGES;
+
+
 USE ritsema_banck;
 
 CREATE TABLE `user` (
