@@ -4,6 +4,6 @@ metadata
 
 cookbook 'apache2'
 cookbook 'openldap'
-cookbook 'mariadb'
+cookbook 'mysql'
 cookbook 'firewall'
 cookbook 'fail2ban'

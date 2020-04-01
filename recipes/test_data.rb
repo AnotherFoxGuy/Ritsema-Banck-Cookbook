@@ -40,6 +40,6 @@ cookbook_file '/var/www/src/test-ldap.php' do
   source 'test-ldap.php'
 end
 
-cookbook_file '/var/www/src/test-mariadb.php' do
-  source 'test-mariadb.php'
+cookbook_file '/var/www/src/test-mysql.php' do
+  source 'test-mysql.php'
 end

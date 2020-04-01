@@ -9,10 +9,10 @@ use mysqli;
 
 class ConnectDB
 {
-    private $servername = "<%= node['mariadb']['host'] %>";
-    private $username = "<%= node['mariadb']['user'] %>";
-    private $password = "<%= node['mariadb']['password'] %>";
-    private $database = "<%= node['mariadb']['database'] %>";
+    private $servername = "<%= node['mysql']['host'] %>";
+    private $username = "<%= node['mysql']['user'] %>";
+    private $password = "<%= node['mysql']['password'] %>";
+    private $database = "<%= node['mysql']['database'] %>";
     private $conn;
 
     public function __construct()

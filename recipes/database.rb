@@ -5,32 +5,19 @@
 # Recipe:: database
 #
 
-mariadb_server_install 'MariaDB Server install' do
-  password node['mariadb']['rootpassword']
-  action %i[install create]
+mysql_service 'default' do
+  package_name 'mysql-server'
+  initial_root_password node['mysql']['rootpassword']
+  action [:create, :start]
 end
 
-mariadb_database node['mariadb']['database'] do
-  host '127.0.0.1'
-  password node['mariadb']['rootpassword']
+mysql_client 'default' do
+  package_name 'mysql-client'
   action :create
 end
-
-mariadb_user node['mariadb']['user'] do
-  ctrl_password node['mariadb']['rootpassword']
-  password node['mariadb']['password']
-  host '%'
-  action :create
-end
-
-# # Query a database
-# mariadb_database 'flush the privileges' do
-#   sql 'flush privileges'
-#   action :query
-# end
 
 execute 'mysqlinport' do
-  command "mysql -u\"root\" -p\"#{node['mariadb']['rootpassword']}\" < /tmp/dump.sql"
+  command "mysql -u\"root\" -p\"#{node['mysql']['rootpassword']}\" < /tmp/dump.sql"
   creates '/var/lib/mysql/ritsema_banck/hypotheeken.ibd'
   sensitive true
   action :nothing
@@ -39,8 +26,4 @@ end
 cookbook_file '/tmp/dump.sql' do
   source 'dump.sql'
   notifies :run, 'execute[mysqlinport]', :immediately
-end
-
-execute 'timedatectl fix' do
-  command "timedatectl set-local-rtc 0"
 end

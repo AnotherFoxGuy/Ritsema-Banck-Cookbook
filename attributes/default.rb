@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-default['mariadb']['host'] = 'localhost'
-default['mariadb']['database'] = 'ritsema_banck'
-default['mariadb']['user'] = 'ritsema_banck'
-default['mariadb']['password'] = '9nrrqepJmMtb85VyQ7EjBKzq'
-default['mariadb']['rootpassword'] = '5aKWmd5UQDfxbDXmJEmPQueu'
+default['mysql']['host'] = 'localhost'
+default['mysql']['database'] = 'ritsema_banck'
+default['mysql']['user'] = 'ritsema_banck'
+default['mysql']['password'] = '9nrrqepJmMtb85VyQ7EjBKzq'
+default['mysql']['rootpassword'] = '5aKWmd5UQDfxbDXmJEmPQueu'
 
 normal['openldap']['basedn'] = 'dc=ritsema-banck, dc=frl'
 normal['openldap']['server'] = 'ritsema-banck.frl'

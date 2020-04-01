@@ -22,7 +22,7 @@ describe http('http://localhost/test-ldap.php') do
   its('body') { should cmp 'success' }
 end
 
-describe http('http://localhost/test-mariadb.php') do
+describe http('http://localhost/test-mysql.php') do
   its('status') { should cmp 200 }
   its('body') { should cmp 'success' }
 end
