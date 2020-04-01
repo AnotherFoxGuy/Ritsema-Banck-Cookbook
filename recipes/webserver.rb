@@ -26,7 +26,7 @@ apache2_module 'authnz_ldap'
 apache2_module 'ssl'
 
 template 'ritsema-banck' do
-  extend  Apache2::Cookbook::Helpers
+  extend Apache2::Cookbook::Helpers
   source 'ritsema-banck.conf'
   path   "#{apache_dir}/sites-available/001-ritsema-banck.conf"
 end
