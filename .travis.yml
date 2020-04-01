@@ -1,0 +1,20 @@
+addons:
+  apt:
+    sources:
+      - chef-current-xenial
+    packages:
+      - chef-workstation
+
+install: echo "skip bundle install"
+
+env:
+  - CHEF_LICENSE=accept
+
+services: docker
+
+before_script:
+  - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
+  - eval "$(chef shell-init bash)"
+  - chef --version
+
+script: kitchen verify default
