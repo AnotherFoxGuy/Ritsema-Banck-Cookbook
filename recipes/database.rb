@@ -5,6 +5,13 @@
 # Recipe:: database
 #
 
+cookbook_file '/usr/bin/mysql_install_db' do
+  source 'mysql_install_db'
+  owner 'root'
+  group 'root'
+  mode 0o777
+end
+
 mysql_service 'default' do
   package_name 'mysql-server'
   version '8.0'
