@@ -16,7 +16,7 @@ mysql_service 'default' do
   package_name 'mysql-server'
   version '8.0'
   initial_root_password node['mysql']['rootpassword']
-  action [:create, :start]
+  action %i[create start]
 end
 
 mysql_client 'default' do
