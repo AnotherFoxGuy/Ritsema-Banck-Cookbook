@@ -5,9 +5,7 @@
 # Recipe:: webserver
 #
 
-file '/etc/default/locale' do
-  content 'LANG=en_GB.UTF-8'
-end
+package 'gnupg'
 
 # https://launchpad.net/~ondrej/+archive/ubuntu/php/
 apt_repository 'ondrej-php' do

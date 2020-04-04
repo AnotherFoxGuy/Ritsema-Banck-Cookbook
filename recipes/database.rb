@@ -12,6 +12,10 @@ cookbook_file '/usr/bin/mysql_install_db' do
   mode 0o777
 end
 
+package 'apparmor' do
+  action :purge
+end
+
 mysql_service 'default' do
   package_name 'mysql-server'
   version '8.0'
