@@ -175,4 +175,35 @@ ALTER TABLE `hypotheeken`
 --
 ALTER TABLE `H_note`
     ADD CONSTRAINT `h_note_ibfk_1` FOREIGN KEY (`sender`) REFERENCES `user` (`id`);
+
+
+CREATE TABLE `messages` (
+  `id` INT PRIMARY KEY AUTO_INCREMENT,
+  `date` date NOT NULL,
+  `text` longtext NOT NULL,
+  `read` int(11) NOT NULL,
+  `sender` int(11) NOT NULL
+) ;
+
+
+CREATE TABLE `hypotheekinfo` (
+  `id`           INT PRIMARY KEY AUTO_INCREMENT,
+  `Geboortedatum` varchar(10) NOT NULL,
+  `Rekeningnummer` varchar(18) NOT NULL,
+  `Bruto jaarinkomen` int(11) NOT NULL,
+  `Eigen inbreng` int(11) NOT NULL,
+  `Schulden` int(11) NOT NULL,
+  `Koopprijs` int(11) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Hypotheek looptijd` int(11) NOT NULL,
+  `Hypotheek` int(11) NOT NULL
+);
+
+--
+-- Gegevens worden geëxporteerd voor tabel `hypotheekinfo`
+--
+
+INSERT INTO `hypotheekinfo` (`Geboortedatum`, `Rekeningnummer`, `Bruto jaarinkomen`, `Eigen inbreng`, `Schulden`, `Koopprijs`, `Email`, `Hypotheek looptijd`, `Hypotheek`) VALUES
+('28/07/1998', 'NL20RABO0343331292', 40000, 25000, 0, 380000, 'pieter@b.nl', 15, 165360);
+
 COMMIT;
