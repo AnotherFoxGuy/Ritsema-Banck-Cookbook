@@ -117,12 +117,12 @@ CREATE TABLE `user`
     `banknum`      tinytext DEFAULT NULL,
     `income`       int(11)  DEFAULT NULL,
     `partner`      int(11)  DEFAULT NULL,
-    `residence`    varchar(200) NOT NULL,
-    `birth_date`   date         NOT NULL,
-    `house_number` int(11)      NOT NULL,
-    `postal_code`  varchar(10)  NOT NULL,
-    `addition`     varchar(10)  NOT NULL,
-    `street`       varchar(200) NOT NULL
+    `residence`    varchar(200) DEFAULT NULL,
+    `birth_date`   date         DEFAULT NULL,
+    `house_number` int(11)      DEFAULT NULL,
+    `postal_code`  varchar(10)  DEFAULT NULL,
+    `addition`     varchar(10)  DEFAULT NULL,
+    `street`       varchar(200) DEFAULT NULL
 ) ;
 
 --
