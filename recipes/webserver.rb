@@ -11,9 +11,6 @@ package 'gnupg'
 apt_repository 'ondrej-php' do
   uri          'ppa:ondrej/php'
 end
-apt_repository 'ondrej-apache2' do
-  uri          'ppa:ondrej/apache2'
-end
 
 # apache2_install 'default'
 package 'apache2'
